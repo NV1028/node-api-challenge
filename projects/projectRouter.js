@@ -96,7 +96,7 @@ router.delete('/:id', validateProjectId(), (req, res, next) => {
 });
 
 //may need next in parameters, added next
-router.put('/:id', validateProjectId(), /*validateProjectId(),*/ (req, res, next) => {
+router.put('/:id', validateProjectId(), validateProjectData(), (req, res, next) => {
   // do your magic!
   projects.update(req.params.id, req.body)
     .then((project) => {
@@ -130,9 +130,9 @@ function validateProjectId(req, res, next) {
 
 function validateProjectData(req, res, next) {
   return (req, res, next) => {
-    if (!req.body || !req.body.name || !req.body.description ) {
+    if (!req.body || !req.body.name || !req.body.description || typeof req.body.completed != "boolean") {
       return res.status(400).json({
-        message: "Missing project name, description, and or completion status",
+        message: "Missing project name, description, and or completion status.  Completion status must be true or false",
       })
     }
     next()
