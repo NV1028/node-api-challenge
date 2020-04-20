@@ -95,7 +95,8 @@ router.delete('/:id', validateProjectId(), (req, res, next) => {
     })
 });
 
-router.put('/:id', validateProjectId(), /*validateProjectId(),*/ (req, res) => {
+//may need next in parameters, added next
+router.put('/:id', validateProjectId(), /*validateProjectId(),*/ (req, res, next) => {
   // do your magic!
   projects.update(req.params.id, req.body)
     .then((project) => {
