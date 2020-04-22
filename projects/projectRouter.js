@@ -18,7 +18,7 @@ router.post('/', validateProjectData(), (req, res, next) => {
     })
 });
 
-router.post('/:id/actions', (req, res, next) => {
+router.post('/:id/actions', validateProjectId(), (req, res, next) => {
   // do your magic!
   if (!req.body.description || !req.body.notes) {
 
@@ -68,7 +68,7 @@ router.get('/:id', validateProjectId(), (req, res, next) => {
     })
 });
 
-router.get('/:id/actions', (req, res) => {
+router.get('/:id/actions', validateProjectId(), (req, res) => {
   // do your magic!
   projects.getProjectActions(req.params.id)
     .then((actions) => {
