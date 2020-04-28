@@ -39,14 +39,19 @@ Commit your code regularly and use descriptive messages. This helps both you (in
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your Team Lead.
 
 - [ ] Mention two parts of Express that you learned about this week.
+Express allows for middlewares to respond to HTTP requests and it allows for dynamically rendered HTML pages based on passing arguments to templates.  Express allows for routing files.
 
 - [ ] Describe Middleware?
+Middleware functions are functions that have access to the request object and the response object and finally the next middleware function.  It's helpful when handling errors or validating access.
 
 - [ ] Describe a Resource?
+A resource can be something like images, CSS, or JavaScript
 
 - [ ] What can the API return to help clients know if a request was successful?
+A status of 200 or 201.  We can send the response to user telling the user if the request was successful or if not why.
 
 - [ ] How can we partition our application into sub-applications?
+By separating them first, exporting them next, and then requiring them or importing them into the main file. (using Express router)
 
 ## Minimum Viable Product
 
